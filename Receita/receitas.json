@@ -1,0 +1,35 @@
+[
+    {
+        "titulo": "Bolo de Chocolate",
+        "imagem": "./assets/bolo.jpg",
+        "preparo": "Pré-aqueça o forno a 180 graus Celsius. Misture o açúcar, a farinha de trigo, o cacau em pó, o bicarbonato de sódio e o sal em uma tigela grande. Adicione o óleo vegetal, os ovos e o extrato de baunilha à mistura seca e bata até que fique homogêneo. Adicione a água quente e bata até que fique homogêneo novamente. Despeje a massa em uma forma untada e asse por 30-35 minutos.",
+        "ingredientes":["1 xícara de açúcar",
+                        "1 xícara de farinha de trigo",
+                        "1/2 xícara de cacau em pó",
+                        "1 colher de chá de bicarbonato de sódio",
+                        "1/2 colher de chá de sal",
+                        "1/2 xícara de óleo vegetal",
+                        "2 ovos",
+                        "1 colher de chá de extrato de baunilha",
+                        "1 xícara de água quente"]
+    },
+    {
+        "titulo": "Pudim de Leite Condensado",
+        "imagem": "./assets/pudim.jpg",
+        "preparo": "Preaqueça o forno a 180°C. Em um liquidificador, bata o leite condensado, o leite e os ovos até ficar homogêneo. Em uma forma de pudim (com furo no meio), derreta o açúcar em fogo médio até formar um caramelo. Adicione a água quente ao caramelo derretido e misture bem. Despeje a mistura do liquidificador na forma com o caramelo. Cubra com papel alumínio e leve ao forno em banho-maria por cerca de 1 hora e 30 minutos. Retire do forno e deixe esfriar completamente antes de desenformar.",
+        "ingredientes":["1 lata de leite condensado",
+                        "A mesma medida (da lata) de leite",
+                        "3 ovos",
+                        "1 xícara (chá) de açúcar",
+                        "1/2 xícara (chá) de água"]
+    },
+    {
+       "titulo": "Beijinho",
+        "imagem": "./assets/beijinho.jpg",
+        "preparo": "Em uma panela, misture o leite condensado, o coco ralado e a manteiga. Leve ao fogo baixo, mexendo sempre, até que a mistura comece a desgrudar do fundo da panela.   Retire do fogo e deixe esfriar por alguns minutos. Com as mãos untadas com manteiga, modele pequenas bolinhas e coloque em forminhas de papel. Decore cada beijinho com um cravo-da-índia. Leve à geladeira por algumas horas antes de servir.",
+        "ingredientes":["1 lata de leite condensado",
+                        "1 pacote de coco ralado",
+                        "1 colher de sopa de manteiga",
+                        "Cravos-da-índia para decorar"] 
+    }
+]

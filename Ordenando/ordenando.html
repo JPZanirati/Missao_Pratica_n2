@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="ordenando.js"></script>
+    <title>Ordenando Valores</title>
+</head>
+
+<body>
+    <h1>Ordenando Valores</h1>
+
+    <div class="div_num">
+        <p>Valor</p>
+        <input type="number" id="valor">
+        <button onclick="add()" class="adicionar">Adicionar</button>
+    </div>
+    <hr>
+    <div class="div_sel">
+        <select name="" id="selecao">
+            <option value="0">Blubble Sort</option>
+            <option value="1">Selection</option>
+            <option value="2">Quick Sort</option>
+        </select>
+    </div>
+    <div class="div_button">
+        <button onclick="ordenar()" class="ordenar">Ordenar</button>
+        <button onclick="misturar()" class="misturar">Misturar</button>
+    </div>
+
+    <hr>
+    <div class="div_lista">
+        <ul id="valores"></ul>
+    </div>
+</body>
+
+<script>
+    var vetor = []
+
+    function add() {
+        var valorInput = document.getElementById("valor");
+        var valor = parseInt(valorInput.value);
+
+        vetor = []
+
+        if (!isNaN(valor)) {
+            var lista = document.getElementById("valores");
+            var node = document.createElement("li");
+            var textNode = document.createTextNode(valor);
+            node.appendChild(textNode);
+            lista.appendChild(node);
+            valorInput.value = "";
+            vetor.push(valor);
+        }
+    }
+
+    function ordenar() {
+        vetor = []
+        var lista = document.getElementById("valores");
+        var selecao = document.getElementById("selecao");
+
+        if (lista.children.length === 0) {
+            alert("A lista de valores está vazia!");
+            return;
+        }
+
+        for (var i = 0; i < lista.children.length; i++) {
+            var valor = eval(lista.children[i].innerHTML);
+            vetor.push(valor);
+        }
+
+        switch (selecao.selectedIndex) {
+            case 0:
+                bubbleSort(vetor);
+                break;
+            case 1:
+                selectionSort(vetor);
+                break;
+            case 2:
+                quickSort(vetor, 0, vetor.length - 1);
+                break;
+        }
+
+        lista.innerHTML = vetor.map(function (valor) {
+            return "<li>" + valor + "</li>";
+        }).reduce(function (anterior, atual) {
+            return anterior + atual;
+        });
+
+    }
+
+    function misturar() {
+        vetor = [];
+        var lista = document.getElementById("valores");
+
+        if (lista.children.length === 0) {
+            alert("A lista de valores está vazia!");
+            return;
+        }
+
+        for (var i = 0; i < lista.children.length; i++) {
+            var valor = eval(lista.children[i].innerHTML);
+            vetor.push(valor);
+        }
+
+        for (var i = vetor.length - 1; i > 0; i--) {
+            var n = Math.floor(Math.random() * (i + 1));
+            var temp = vetor[i];
+            vetor[i] = vetor[n];
+            vetor[n] = temp;
+        }
+
+        lista.innerHTML = vetor.map(function (valor) {
+            return "<li>" + valor + "</li>";
+        }).reduce(function (anterior, atual) {
+            return anterior + atual;
+        });
+    }
+
+</script>
+
+</html>

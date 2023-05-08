@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="./styles/receitas.css">
+    <title>Receitas</title>
+</head>
+
+<body class="bg-warning">
+    <main class="container-fluid">
+        <h1>Catálogo de Receitas</h1>
+        <div class="pnlCatalogo">
+        </div>
+    </main>
+</body>
+
+<script>
+    fetch('receitas.json')
+        .then(response => response.json())
+        .then(data => preencheCatalogo(data));
+
+    function getListaIngredientes(receitas) {
+        let lista = "<ul>";
+        if (receitas.ingredientes) {
+            const ingredientes = receitas.ingredientes;
+            const listaIngredientes = ingredientes.map((ingredientes) => "<li>" + ingredientes + "</li>");
+            lista += listaIngredientes.reduce((acc, ingrediente) => acc + ingrediente, "");
+        }
+        lista += "</ul>";
+        return lista;
+    };
+
+    function getCard(receitas) {
+        const card =
+            `<img src="${receitas.imagem}" alt="${receitas.titulo}">
+                <div class="card-body">
+                    <h2 class="card-title">${receitas.titulo}</h2>
+                    <div class="card-text">
+                        ${getListaIngredientes(receitas)}
+                        <hr>
+                        ${receitas.preparo}
+                    </div>
+                </div>`;
+        return card;
+    };
+
+    function preencheCatalogo(receitas) {
+        const divReceitas = document.querySelector('.pnlCatalogo');
+        receitas.forEach(receitas => {
+            const divCard = document.createElement('div');
+            divCard.className = 'card';
+            divCard.innerHTML = getCard(receitas);
+            divReceitas.appendChild(divCard);
+        });
+    }
+
+</script>
+
+</html>
